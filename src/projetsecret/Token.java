@@ -8,7 +8,7 @@ public class Token
 	
 	public Token()
 	{
-		maCouleur= NULL ;
+		maCouleur= null ;
 		est_actif = false;
 	}
 		 
