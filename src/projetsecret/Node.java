@@ -10,6 +10,7 @@ public class Node
 	
 	public Node()
 	{
+		maPierre = new Token() ;
 		gauche=null;
 		droite=null;
 		hautdroite= null;

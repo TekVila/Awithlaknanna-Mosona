@@ -14,7 +14,7 @@ public class Token
 		 
 	public void setColor (Color theColor)
 	{
-	maCouleur = theColor ;
+		maCouleur = theColor ;
 	}
 	
 	public void setActive (boolean actif)
