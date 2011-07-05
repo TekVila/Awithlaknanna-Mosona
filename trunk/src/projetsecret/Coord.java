@@ -12,16 +12,16 @@ package projetsecret;
 public class Coord {
 
     //myX et myY sont publics pour des raisons pratiques
-    public float myX;
-    public float myY;
+    public int myX;
+    public int myY;
 
     public Coord()
     {
-        this.myX = 0.f;
-        this.myY = 0.f;
+        this.myX = 0;
+        this.myY = 0;
     }
 
-    public Coord(float x, float y)
+    public Coord(int x, int y)
     {
         this.myX = x;
         this.myY = y;
