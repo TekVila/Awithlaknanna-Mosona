@@ -4,20 +4,21 @@ public class Board
 {
 	private Node[] monPlateau ;
 	private Coord[] mesCoord;
-        private int derniere_case=0 ;
-        private int taille ;
 
 	public Board()
 	{
+            int derniere_case=0 ;
+            int taille ;
+            
             monPlateau = new Node[25];
             mesCoord= new Coord[25];      
         
-            for(int i=0 ; i<=25; i++)
+            for(int i=0 ; i<25; i++)
             {
-                monPlateau[i]= null ;
+                monPlateau[i]= new Node();
             }
             
-            for( int j=0; j<= 3 ; j++ )
+            for( int j=0; j< 3 ; j++ )
             {
                 if (j== 0)
                 {
@@ -32,7 +33,7 @@ public class Board
                     taille = 8;
                 }
 
-                for(int i = 0 ; i<= taille ; i++ )
+                for(int i = 0 ; i< taille ; i++ )
                 {
                     if ((i+1)<taille)
                     {
@@ -43,9 +44,9 @@ public class Board
                     if (j==0) 
                     {
 			monPlateau[i].basgauche=monPlateau[taille+i];
-			monPlateau[taille + i].hautgauche=monPlateau[i];
-			monPlateau[i].hautdroite=monPlateau[taille+i+1];
-			monPlateau[taille+1+i].basdroite=monPlateau[i];
+			monPlateau[taille + i].hautdroite=monPlateau[i];
+			monPlateau[i].basdroite=monPlateau[taille+i+1];
+			monPlateau[taille+1+i].hautgauche=monPlateau[i];
                     }
                     else if (j==1) 
                     {   
@@ -62,7 +63,7 @@ public class Board
                     }
                   }
 	
-                  derniere_case=derniere_case+1 ;
+                  derniere_case=derniere_case + taille;
                 }
             }
 	
