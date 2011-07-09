@@ -27,6 +27,7 @@ public class Display extends JFrame{
     public void Draw()
     {
         this.add(this.laZone);
+        this.repaint();
     }
 
 }
