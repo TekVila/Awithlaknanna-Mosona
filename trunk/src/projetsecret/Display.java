@@ -1,15 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package projetsecret;
 
 import javax.swing.JFrame;
 
 /**
- *
- * @author Clément
+ * Classe d'affichage à l'écran
  */
 public class Display extends JFrame{
 
@@ -18,15 +12,13 @@ public class Display extends JFrame{
 
     private GameSpace laZone;
 
-    
-
     public Display(Board theBoard, Skin theSkin)
     {
         this.lePlateau = theBoard;
         this.laPeau = theSkin;
-        this.laZone = new GameSpace(this.laPeau);
+        this.laZone = new GameSpace(this.laPeau, this.lePlateau);
 
-        this.setSize(640,480);
+        this.setSize(800,600);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
        // this.pack();
         this.setVisible(true);
