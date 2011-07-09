@@ -44,7 +44,7 @@ public class Picture extends Panel{
         }*/
 
         java.net.URL url = this.getClass().getResource( "../" +fileName);
-        System.out.print(url);
+        //System.out.print(url);
         image = Toolkit.getDefaultToolkit().getImage(url);
         try {
             MediaTracker mt = new MediaTracker(this);
