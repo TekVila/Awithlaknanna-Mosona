@@ -1,23 +1,24 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package projetsecret;
 
 /**
- *
- * @author Clément
+ * Classe décrivant les régles de jeu
  */
 public class Rules {
 
     private Board lePlateau;
 
+    /**
+     * Constructeur
+     * @param theBoard Le Board auquel on souhaite que les règles s'appliquent
+     */
     public Rules(Board theBoard)
     {
         this.lePlateau = theBoard;
     }
 
+    /**
+     * Initialisation des Tokens du Board en position de début de partie.
+     */
     public void InitBoard()
     {
         int total = this.lePlateau.getNombre_nodes();
@@ -41,12 +42,24 @@ public class Rules {
         }
     }
 
+    /**
+     * Demande et effectue si possible le déplacement requis
+     * @param col Color du Player faisant la demande
+     * @param drag Position initiale de la souris sur l'écran
+     * @param drop Position finale de la souris sur l'écran
+     * @return TRUE si le déplacement à réussi
+     */
     public boolean Move(Color col, Coord drag, Coord drop)
     {
 
         return false;
     }
     
+    /**
+     * Compte le nombre de Token sur le Board de la Color demandée
+     * @param col Color choisie
+     * @return Le nombre de Token de cette Color
+     */
     protected int Count(Color col)
     {
         int total = this.lePlateau.getNombre_nodes();
@@ -62,6 +75,10 @@ public class Rules {
         return tmp;
     }
 
+    /**
+     * Détermine si la partie est terminée
+     * @return TRUE si elle l'est
+     */
     public boolean IsOver()
     {
         if ( this.Count(Color.Blanc) == 0 || this.Count(Color.Noir) == 0)
