@@ -17,28 +17,33 @@ import javax.swing.JPanel;
 public class GameSpace extends JPanel implements MouseListener{
     
     private Skin laPeau;
+    private Board lePlateau;
 
-    public GameSpace(Skin theSkin)
+    public GameSpace(Skin theSkin, Board theBoard)
     {
         super();
         this.addMouseListener(this);
         this.laPeau = theSkin;
+        this.lePlateau = theBoard;
 
     }
 
     @Override
     public void paint(Graphics g) {
-        for ( int i = 0 ; i < laPeau.Handler.size()+1; i++) {
-            if (i == 5){
-                (laPeau.Handler.get(4)).SetCoord(80, 200);
-                (laPeau.Handler.get(4)).paint(g);
-            } else
+        for (int i = 0 ; i < lePlateau.getNombre_nodes(); i++)
+        {
+            if ( lePlateau.getNodes(i).getToken().isActive() )
             {
-                if (i == 4)
+                if ( lePlateau.getNodes(i).getToken().getColor() == Color.Blanc )
                 {
-                    (laPeau.Handler.get(i)).SetCoord(50, 100);
+                    (laPeau.Handler.get(3)).SetCoord(lePlateau.get_Coordonnees_node(i));
+                    (laPeau.Handler.get(3)).paint(g);
                 }
-                (laPeau.Handler.get(i)).paint(g);
+                else
+                {
+                    (laPeau.Handler.get(4)).SetCoord(lePlateau.get_Coordonnees_node(i));
+                    (laPeau.Handler.get(4)).paint(g);
+                }
             }
         }
     }

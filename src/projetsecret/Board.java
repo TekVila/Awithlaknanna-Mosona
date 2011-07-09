@@ -16,6 +16,7 @@ public class Board
             for(int i=0 ; i<25; i++)
             {
                 monPlateau[i]= new Node();
+                mesCoord[i] = new Coord();
             }
             
             for( int j=0; j< 3 ; j++ )
@@ -35,6 +36,15 @@ public class Board
 
                 for(int i = 0 ; i< taille ; i++ )
                 {
+                    
+                    if (j == 1)
+                        mesCoord[i+derniere_case].myX = i * 80 + 15;
+                    else
+                        mesCoord[i+derniere_case].myX = i * 80 + 55;
+                    
+                    mesCoord[i+derniere_case].myY = j * 80 + 15;
+
+
                     if ((i+1)<taille)
                     {
 			monPlateau[i+derniere_case].droite=monPlateau[i+derniere_case+1];
@@ -81,5 +91,15 @@ public class Board
 	{
             return monPlateau[indice] ;
 	}
-	
+
+        public int IndiceOfCoord(Coord coord)
+        {
+            for (int i = 0 ; i < getNombre_nodes() ; i++)
+            {
+                Coord tmp = mesCoord[i];
+                if (coord.myX >= tmp.myX && coord.myX < tmp.myX+60 && coord.myY >= tmp.myY && coord.myY < tmp.myY )
+                    return i;
+            }
+            return -1;
+        }
 }

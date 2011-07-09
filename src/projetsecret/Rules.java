@@ -5,6 +5,10 @@ package projetsecret;
  */
 public class Rules {
 
+    /**
+     * Le Board sur lequel s'appliqueront les règles
+     * @see Board
+     */
     private Board lePlateau;
 
     /**
@@ -30,7 +34,7 @@ public class Rules {
                 this.lePlateau.getNodes(i).getToken().setColor(Color.Noir);
                 this.lePlateau.getNodes(i).getToken().setActive(true);
             }
-            else if ( i == (int)(total+1/2))
+            else if ( i == (int)(total/2))
             {
                 this.lePlateau.getNodes(i).getToken().setActive(false);
             }
@@ -47,11 +51,35 @@ public class Rules {
      * @param col Color du Player faisant la demande
      * @param drag Position initiale de la souris sur l'écran
      * @param drop Position finale de la souris sur l'écran
-     * @return TRUE si le déplacement à réussi
+     * @return TRUE si le déplacement a réussi
      */
     public boolean Move(Color col, Coord drag, Coord drop)
     {
+        int ind1;
+        if ( ( ind1 = this.lePlateau.IndiceOfCoord(drag) ) != -1 )
+        {
+            if (this.lePlateau.getNodes(ind1).getToken().getColor() == col)
+            {
+                int ind2;
+                if ( ( ind2 = this.lePlateau.IndiceOfCoord(drop) ) != -1 )
+                {
+                    if ( ind2 != ind1)
+                    {
+                        //On va switcher pour le moment
+                        Color testCol = this.lePlateau.getNodes(ind1).getToken().getColor();
+                        boolean actif = this.lePlateau.getNodes(ind1).getToken().isActive();
 
+                        this.lePlateau.getNodes(ind1).getToken().setColor(this.lePlateau.getNodes(ind2).getToken().getColor());
+                        this.lePlateau.getNodes(ind1).getToken().setActive(this.lePlateau.getNodes(ind2).getToken().isActive());
+
+                        this.lePlateau.getNodes(ind2).getToken().setColor(testCol);
+                        this.lePlateau.getNodes(ind2).getToken().setActive(actif);
+
+                        return true;
+                    }
+                }
+            }
+        }
         return false;
     }
     
