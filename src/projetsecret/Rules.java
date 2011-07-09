@@ -58,11 +58,13 @@ public class Rules {
         int ind1;
         if ( ( ind1 = this.lePlateau.IndiceOfCoord(drag) ) != -1 )
         {
+            System.out.println(ind1);
             if (this.lePlateau.getNodes(ind1).getToken().getColor() == col)
             {
                 int ind2;
                 if ( ( ind2 = this.lePlateau.IndiceOfCoord(drop) ) != -1 )
                 {
+                    System.out.println(ind2);
                     if ( ind2 != ind1)
                     {
                         //On va switcher pour le moment

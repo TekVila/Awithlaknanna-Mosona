@@ -97,7 +97,8 @@ public class Board
             for (int i = 0 ; i < getNombre_nodes() ; i++)
             {
                 Coord tmp = mesCoord[i];
-                if (coord.myX >= tmp.myX && coord.myX < tmp.myX+60 && coord.myY >= tmp.myY && coord.myY < tmp.myY )
+                //System.out(tmp.myX + " " + tmp.myY + "/" + tmp.myX+60 +" "+ )
+                if (coord.myX >= tmp.myX && coord.myX < tmp.myX+60 && coord.myY >= tmp.myY && coord.myY < tmp.myY+60 )
                     return i;
             }
             return -1;
