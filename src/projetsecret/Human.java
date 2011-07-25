@@ -13,7 +13,7 @@ public class Human extends Player
         
         public void Think()
         {
-             Coord temp1,temp2, tempX ;
+             Coord temp1,temp2;
              
         //ce qu'il doit faire c'est tant que le coup n'est pas validé par les règles ... 
         //il boucle sur 
@@ -23,6 +23,7 @@ public class Human extends Player
              temp1 = new Coord();
              temp2 = new Coord();
             
+         
             
             
             while(super.mesRegles.Move(super.maCouleur,temp1,temp2)== false) 
@@ -31,11 +32,11 @@ public class Human extends Player
                 // on continue de demander au joueur un déplacement
                 // on quitte la boucle quand rules.move= vrai
             
-                if( Mouse.Drag()!=null)
+                if( (temp1=Mouse.Drag()) !=null)
                 {// On teste la prise du pion, si elle est différente de null
                     // le pion à été pris et on continue
                     
-                    while(Mouse.Drop()== null)
+                    while((temp2=Mouse.Drop())== null)
                     {// on teste la dépose du pion, avant qu'elle soit valide.
                         // si elle est valide, alors on passe au joueur suivant
                         
