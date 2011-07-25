@@ -1,5 +1,7 @@
 package projetsecret;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 /**
@@ -14,6 +16,12 @@ public class Display extends JFrame{
 
     public Display(Board theBoard, Skin theSkin)
     {
+        this.addWindowListener(new WindowAdapter()
+           {@Override
+public void windowClosing(WindowEvent e)
+                  {System.exit(0);
+                  }
+             } ) ; 
         this.lePlateau = theBoard;
         this.laPeau = theSkin;
         this.laZone = new GameSpace(this.laPeau, this.lePlateau);
