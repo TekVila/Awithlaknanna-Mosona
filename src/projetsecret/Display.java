@@ -9,22 +9,17 @@ import javax.swing.JFrame;
  */
 public class Display extends JFrame{
 
-    protected Board lePlateau;
-    protected Skin laPeau;
-
     private GameSpace laZone;
 
     public Display(Board theBoard, Skin theSkin)
     {
         this.addWindowListener(new WindowAdapter()
            {@Override
-public void windowClosing(WindowEvent e)
+            public void windowClosing(WindowEvent e)
                   {System.exit(0);
                   }
              } ) ; 
-        this.lePlateau = theBoard;
-        this.laPeau = theSkin;
-        this.laZone = new GameSpace(this.laPeau, this.lePlateau);
+        this.laZone = new GameSpace(theSkin, theBoard);
 
         this.setSize(800,600);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
