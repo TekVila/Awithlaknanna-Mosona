@@ -38,11 +38,11 @@ public class Board
                 {
                     
                     if (j == 1)
-                        mesCoord[i+derniere_case].myX = i * 80 + 15;
+                        mesCoord[i+derniere_case].myX = i * 80 + 45;
                     else
-                        mesCoord[i+derniere_case].myX = i * 80 + 55;
+                        mesCoord[i+derniere_case].myX = i * 80 + 85;
                     
-                    mesCoord[i+derniere_case].myY = j * 80 + 15;
+                    mesCoord[i+derniere_case].myY = j * 80 + 45;
 
 
                     if ((i+1)<taille)

@@ -30,6 +30,7 @@ public class GameSpace extends JPanel implements MouseListener{
 
     @Override
     public void paint(Graphics g) {
+        laPeau.Handler.get(0).paint(g);
         for (int i = 0 ; i < lePlateau.getNombre_nodes(); i++)
         {
             if ( lePlateau.getNodes(i).getToken().isActive() )
@@ -44,6 +45,12 @@ public class GameSpace extends JPanel implements MouseListener{
                     (laPeau.Handler.get(4)).SetCoord(lePlateau.get_Coordonnees_node(i));
                     (laPeau.Handler.get(4)).paint(g);
                 }
+            }
+            else
+            {
+                Coord tmp = lePlateau.get_Coordonnees_node(i);
+                laPeau.Handler.get(2).SetCoord(tmp.myX + 20, tmp.myY + 20);
+                laPeau.Handler.get(2).paint(g);
             }
         }
     }
