@@ -1,5 +1,8 @@
 package projetsecret ;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class Human extends Player
 {
     
@@ -31,7 +34,15 @@ public class Human extends Player
                 // le déplacement n'a pas été validé
                 // on continue de demander au joueur un déplacement
                 // on quitte la boucle quand rules.move= vrai
-            
+                // On teste rules.move, tant qu'il est faux, c'est à dire que
+                // le déplacement n'a pas été validé
+                // on continue de demander au joueur un déplacement
+                // on quitte la boucle quand rules.move= vrai
+                try {
+                    Thread.sleep(100); //franchement inhumain de pas pouvoir se contenter de cette unique ligne
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Human.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 if( (temp1=Mouse.Drag()) !=null)
                 {// On teste la prise du pion, si elle est différente de null
                     // le pion à été pris et on continue
@@ -39,7 +50,13 @@ public class Human extends Player
                     while((temp2=Mouse.Drop())== null)
                     {// on teste la dépose du pion, avant qu'elle soit valide.
                         // si elle est valide, alors on passe au joueur suivant
-                        
+                        // on teste la dépose du pion, avant qu'elle soit valide.
+                        // si elle est valide, alors on passe au joueur suivant
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Human.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
             
